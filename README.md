@@ -31,7 +31,7 @@
 
 <p align="center">
   <a href="#about">About</a> &#xa0; | &#xa0; 
-  <a href="#lenks">Features</a> &#xa0; | &#xa0;
+  <a href="#links">Links</a> &#xa0; | &#xa0;
   <a href="#functions">Functions</a> &#xa0; | &#xa0;
   <a href="#starting">Starting</a> &#xa0; | &#xa0;
   <a href="https://github.com/anolivei" target="_blank">Author</a>
