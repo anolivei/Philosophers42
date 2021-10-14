@@ -17,6 +17,8 @@
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/anolivei/Philosophers42?color=3de069">
 
+  <img alt="Norminette" src="https://github.com/anolivei/Philosophers42/actions/workflows/norminette.yml/badge.svg?event=push">
+
 </p>
 
 <h4 align="center">
