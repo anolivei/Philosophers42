@@ -7,7 +7,7 @@
 
 <h1 align="center"> 🍝 Philosophers </h1>
 
-<h2 align="center">I’ve never thought philosophy would be so deadly. </h2>
+<h2 align="center">I’ve never thought philosophy would be so deadly </h2>
 <br>
 <p align="center">
 
