@@ -1,9 +1,4 @@
-<div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Gh_philosophers" />
-
   &#xa0;
-
-</div>
 
 <h1 align="center"> 🍝 Philosophers </h1>
 
@@ -92,5 +87,9 @@ $ ./philosophers
 ```
 
 &#xa0;
+
+<div align="center" id="top"> 
+  <img src="./.github/app.gif" alt="Gh_philosophers" />
+</div>
 
 <a href="#top">Back to top</a>
