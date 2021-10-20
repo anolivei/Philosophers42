@@ -1,4 +1,4 @@
 .DS_STORE
 .vscode/
 *.o
-philosophers
+philo/philo
