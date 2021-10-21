@@ -6,7 +6,7 @@
 #    By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/14 20:22:14 by anolivei          #+#    #+#              #
-#    Updated: 2021/10/14 20:25:53 by anolivei         ###   ########.fr        #
+#    Updated: 2021/10/20 22:23:48 by anolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ SRC_DIR = sources
 OBJ_DIR = .objs
 
 SRC =	$(SRC_DIR)/main.c \
-		$(SRC_DIR)/ft_atoi.c
+		$(SRC_DIR)/error_handling.c \
+		$(SRC_DIR)/philo_utils.c
 
 
 OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC))

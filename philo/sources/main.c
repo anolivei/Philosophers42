@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:35:22 by anolivei          #+#    #+#             */
-/*   Updated: 2021/10/14 20:37:31 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/10/20 23:39:43 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2)
-		printf("%s\n", argv[1]);
+	t_philo	philo;
+
+	error_handling(argc, argv, &philo);
 	return (0);
 }

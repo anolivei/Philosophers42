@@ -1,0 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/20 21:10:58 by anolivei          #+#    #+#             */
+/*   Updated: 2021/10/20 23:42:04 by anolivei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo.h"
+
+bool	init_philo_struct(int argc, char **argv, t_philo *philo)
+{
+	if (argc == 5 || argc == 6)
+	{
+		philo->num_of_philo = philo_atoi(argv[1]);
+		philo->time_to_die = philo_atoi(argv[2]);
+		philo->time_to_eat = philo_atoi(argv[3]);
+		philo->time_to_sleep = philo_atoi(argv[4]);
+		if (argc == 6)
+			philo->num_of_times_each_philo_must_eat = philo_atoi(argv[5]);
+		return (true);
+	}
+	return (false);
+}
+
+void	error_handling(int argc, char **argv, t_philo *philo)
+{
+	if (init_philo_struct(argc, argv, philo) == false)
+		printf("ERROR: The number of argments must be 4 or 5\n");
+	else
+	{
+		if (!philo->num_of_philo)
+			printf("ERROR: There is a mistake in number of philosophers\n");
+		if (!philo->time_to_die)
+			printf("ERROR: There is a mistake in time to die\n");
+		if (!philo->time_to_eat)
+			printf("ERROR: There is a mistake in time to eat\n");
+		if (!philo->time_to_sleep)
+			printf("ERROR: There is a mistake in time to sleep\n");
+		if (argc == 6 && !philo->num_of_times_each_philo_must_eat)
+			printf("ERROR: There is a mistake in number \
+of times each philosopher must eat\n");
+	}
+}
