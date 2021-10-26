@@ -49,6 +49,7 @@
 - [Tester](https://github.com/GOAT095/philosophers-tester)
 - [Script Maroto xD](https://github.com/GOAT095/philosophers-tester/blob/master/delay_o_meter.py)
 - [pthreads Tutorial](https://randu.org/tutorials/threads/)
+- [pthreads Short Introduction](https://www.youtube.com/watch?v=d9s_d28yJq0)
 - [An Application of Pthreads and Mutexes](http://files.kipr.org/gcer/2009/proceedings/Myers_ApplicationPthreads.pdf)
 - [Multithreading part 1](https://www.youtube.com/watch?v=GNw3RXr-VJk)
 - [Multithreading part 2](https://www.youtube.com/watch?v=sDLQWivf1-I)
