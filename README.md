@@ -93,4 +93,6 @@ $ ./philosophers
   <img src="./.github/app.gif" alt="Gh_philosophers" />
 </div>
 
-<a href="#top">Back to top</a>
+<a href="#top">Back to top</a><br>
+<br>
+[![42 Profile Card](https://1337-readme.vercel.app/api/profile?cursus=42cursus&dark=true&leet_logo=hide&login=anolivei)](https://github.com/mohouyizme/1337-readme)
