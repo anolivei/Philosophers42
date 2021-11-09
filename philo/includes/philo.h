@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/08 22:19:06 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/08 22:54:22 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,23 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <stdbool.h>
 # include <pthread.h>
 # include <sys/time.h>
-# include <limits.h>
+
+/*
+** limits
+*/
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
+/*
+** bool
+*/
+# define TRUE 1
+# define FALSE 0
+/*
+** Colors
+*/
 
 # define RED "\e[0;31m"
 # define RESET "\e[0m"
@@ -41,7 +54,7 @@ typedef struct s_philo
 ** Functions
 */
 void	error_handling(int argc, char **argv, t_philo *philo);
-bool	init_philo_struct(int argc, char **argv, t_philo *philo);
+int		init_philo_struct(int argc, char **argv, t_philo *philo);
 int		philo_atoi(char *str);
 
 #endif
