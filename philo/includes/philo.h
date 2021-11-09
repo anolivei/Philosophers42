@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/10/20 23:40:42 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/08 22:19:06 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <limits.h>
+
+# define RED "\e[0;31m"
+# define RESET "\e[0m"
 
 /*
 ** Structures

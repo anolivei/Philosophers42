@@ -6,7 +6,7 @@
 #    By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/14 20:22:14 by anolivei          #+#    #+#              #
-#    Updated: 2021/10/20 22:23:48 by anolivei         ###   ########.fr        #
+#    Updated: 2021/11/08 22:30:06 by anolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,16 +35,18 @@ $(NAME): $(OBJ)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 		@mkdir -p $(OBJ_DIR)
 		@$(CC) $(CFLAGS) $(HEAD) -c $< -o $@
-		@echo "\033[1;32m[OK]\033[0m    \033[1;33mCompiling\033[0m $(<F)"
+		@echo "\033[1;32m[OK]\033[0m    \033[1;38;5;199mCompiling\033[0m $(<F)"
 
 $(LIBFT):
 		@make -C $(LIBFT_DIR)
 
 clean:
 		@$(RM) $(OBJ_DIR)
+		@echo "\033[1;32m[OK]\033[0m    \033[1;38;5;44mRemoving objects\033[0m"
 
 fclean: clean
 		@$(RM) $(NAME)
+		@echo "\033[1;32m[OK]\033[0m    \033[1;38;5;44mRemoving philo\033[0m"
 
 re: fclean all
 

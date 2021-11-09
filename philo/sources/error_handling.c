@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:10:58 by anolivei          #+#    #+#             */
-/*   Updated: 2021/10/20 23:42:04 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/08 22:23:25 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,24 @@ bool	init_philo_struct(int argc, char **argv, t_philo *philo)
 void	error_handling(int argc, char **argv, t_philo *philo)
 {
 	if (init_philo_struct(argc, argv, philo) == false)
-		printf("ERROR: The number of argments must be 4 or 5\n");
+		printf("%sERROR: The number of argments must be 4 or 5%s\n",
+			RED, RESET);
 	else
 	{
 		if (!philo->num_of_philo)
-			printf("ERROR: There is a mistake in number of philosophers\n");
+			printf("%sERROR: There is a mistake in number of philosophers%s\n",
+				RED, RESET);
 		if (!philo->time_to_die)
-			printf("ERROR: There is a mistake in time to die\n");
+			printf("%sERROR: There is a mistake in time to die%s\n",
+				RED, RESET);
 		if (!philo->time_to_eat)
-			printf("ERROR: There is a mistake in time to eat\n");
+			printf("%sERROR: There is a mistake in time to eat%s\n",
+				RED, RESET);
 		if (!philo->time_to_sleep)
-			printf("ERROR: There is a mistake in time to sleep\n");
+			printf("%sERROR: There is a mistake in time to sleep%s\n",
+				RED, RESET);
 		if (argc == 6 && !philo->num_of_times_each_philo_must_eat)
-			printf("ERROR: There is a mistake in number \
-of times each philosopher must eat\n");
+			printf("%sERROR: There is a mistake in number \
+of times each philosopher must eat%s\n", RED, RESET);
 	}
 }
