@@ -6,49 +6,46 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:10:58 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/08 22:43:59 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/15 22:09:17 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	init_philo_struct(int argc, char **argv, t_philo *philo)
+int	init_input_struct(int argc, char **argv, t_main *main)
 {
 	if (argc == 5 || argc == 6)
 	{
-		philo->num_of_philo = philo_atoi(argv[1]);
-		printf("%i\n", philo->num_of_philo);
-		philo->time_to_die = philo_atoi(argv[2]);
-		philo->time_to_eat = philo_atoi(argv[3]);
-		philo->time_to_sleep = philo_atoi(argv[4]);
+		main->input.num_philo = philo_atoi(argv[1]);
+		main->input.time_to_die = philo_atoi(argv[2]);
+		main->input.time_to_eat = philo_atoi(argv[3]);
+		main->input.time_to_sleep = philo_atoi(argv[4]);
 		if (argc == 6)
-			philo->num_of_times_each_philo_must_eat = philo_atoi(argv[5]);
+			main->input.num_of_times_each_philo_must_eat = philo_atoi(argv[5]);
 		return (TRUE);
 	}
 	return (FALSE);
 }
 
-void	error_handling(int argc, char **argv, t_philo *philo)
+int	error_handling(int argc, char **argv, t_main *main)
 {
-	if (init_philo_struct(argc, argv, philo) == FALSE)
-		printf("%sERROR: The number of argments must be 4 or 5%s\n",
-			RED, RESET);
+	if (init_input_struct(argc, argv, main) == FALSE)
+	{
+		printf("%s%s%s\n", RED, NUM_ARGS, RESET);
+		return (FALSE);
+	}
 	else
 	{
-		if (!philo->num_of_philo)
-			printf("%sERROR: There is a mistake in number of philosophers%s\n",
-				RED, RESET);
-		if (!philo->time_to_die)
-			printf("%sERROR: There is a mistake in time to die%s\n",
-				RED, RESET);
-		if (!philo->time_to_eat)
-			printf("%sERROR: There is a mistake in time to eat%s\n",
-				RED, RESET);
-		if (!philo->time_to_sleep)
-			printf("%sERROR: There is a mistake in time to sleep%s\n",
-				RED, RESET);
-		if (argc == 6 && !philo->num_of_times_each_philo_must_eat)
-			printf("%sERROR: There is a mistake in number \
-of times each philosopher must eat%s\n", RED, RESET);
+		if (!main->input.num_philo)
+			printf("%s%s%s\n", RED, ARG1, RESET);
+		if (!main->input.time_to_die)
+			printf("%s%s%s\n", RED, ARG2, RESET);
+		if (!main->input.time_to_eat)
+			printf("%s%s%s\n", RED, ARG3, RESET);
+		if (!main->input.time_to_sleep)
+			printf("%s%s%s\n", RED, ARG4, RESET);
+		if (argc == 6 && !main->input.num_of_times_each_philo_must_eat)
+			printf("%s%s%s\n", RED, ARG5, RESET);
 	}
+	return (TRUE);
 }
