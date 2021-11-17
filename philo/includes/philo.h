@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/15 22:10:01 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/16 22:27:56 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,26 @@ typedef struct s_main
 }					t_main;
 
 /*
-** Functions
+** error_handling.c
 */
-int		error_handling(int argc, char **argv, t_main *main);
-int		init_input_struct(int argc, char **argv, t_main *main);
-int		philo_atoi(char *str);
-int		create_philos(t_main *main);
-void	free_philos(t_main *main);
+int			error_handling(int argc, char **argv, t_main *main);
+int			init_input_struct(int argc, char **argv, t_main *main);
+
+/*
+** philo_utils.c
+*/
+int			philo_atoi(char *str);
+void		free_philos(t_main *main);
+
+/*
+** create_philos.c
+*/
+int			create_philos(t_main *main);
+void		fill_philo_struct(t_main *main, int i, int j);
+
+/*
+** time_handling.c
+*/
+long long	get_time(void);
 
 #endif
