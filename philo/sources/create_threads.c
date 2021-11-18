@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   create_threads.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 20:35:22 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/17 22:32:54 by anolivei         ###   ########.fr       */
+/*   Created: 2021/11/17 23:00:12 by anolivei          #+#    #+#             */
+/*   Updated: 2021/11/17 23:04:27 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+void	create_threads(t_main *main)
 {
-	t_main	main;
+	int	i;
 
-	if (error_handling(argc, argv, &main) == FALSE)
-		return (1);
-	if (create_philos(&main) == FALSE)
-		return (1);
-	if (create_forks(&main) == FALSE)
-		return (1);
-	philo_free(&main);
-	return (0);
+	i = main->philo->id;
 }

@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/17 22:23:12 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/17 23:02:40 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,10 @@ int			create_forks(t_main *main);
 ** time_handling.c
 */
 long long	get_time(void);
+
+/*
+** create_threads.c
+*/
+void		create_threads(t_main *main);
 
 #endif
