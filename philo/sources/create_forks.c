@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_utils.c                                      :+:      :+:    :+:   */
+/*   create_forks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 20:07:45 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/17 22:19:09 by anolivei         ###   ########.fr       */
+/*   Created: 2021/11/17 22:12:20 by anolivei          #+#    #+#             */
+/*   Updated: 2021/11/17 22:22:55 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	philo_atoi(char *str)
+int	create_forks(t_main *main)
 {
-	int			i;
-	long int	n;
+	int	i;
 
+	main->forks = malloc(sizeof(pthread_mutex_t) * main->input.num_philo + 1);
+	if (main->forks == NULL)
+		return (FALSE);
 	i = 0;
-	n = 0;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (i < main->input.num_philo)
 	{
-		n = n * 10 + str[i] - '0';
-		i++;
+		if (pthread_mutex_init(&main->forks[i], NULL) != 0)
+			return (FALSE);
 	}
-	if (n < 0 || ((str[i] < '0' || str[i] > '9') && str[i] != '\0')
-		|| n > INT_MAX)
-		return (0);
-	return (n);
-}
-
-void	philo_free(t_main *main)
-{
-	free(main->philo);
-	free(main->forks);
+	return (TRUE);
 }

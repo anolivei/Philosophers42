@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 22:11:32 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/16 22:44:38 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/17 22:04:45 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,11 @@ long long	get_time(void)
 
 	gettimeofday(&time, NULL);
 	return ((time.tv_sec * 1000) + (time.tv_usec * 0.001));
+}
+
+int	delta_time(long long time1)
+{
+	if (time1 > 0)
+		return (get_time() - time1);
+	return (FALSE);
 }

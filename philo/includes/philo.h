@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/16 22:27:56 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/17 22:23:12 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,18 @@ int			init_input_struct(int argc, char **argv, t_main *main);
 ** philo_utils.c
 */
 int			philo_atoi(char *str);
-void		free_philos(t_main *main);
+void		philo_free(t_main *main);
 
 /*
 ** create_philos.c
 */
 int			create_philos(t_main *main);
 void		fill_philo_struct(t_main *main, int i, int j);
+
+/*
+** create_forks.c
+*/
+int			create_forks(t_main *main);
 
 /*
 ** time_handling.c

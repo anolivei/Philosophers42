@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:35:22 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/15 22:08:05 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/17 22:19:55 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(int argc, char **argv)
 	if (error_handling(argc, argv, &main) == TRUE)
 	{
 		create_philos(&main);
-		free_philos(&main);
+		create_forks(&main);
+		philo_free(&main);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 20:01:05 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/16 22:24:50 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/17 22:16:49 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,13 @@ int	create_philos(t_main *main)
 	main->philo = malloc(sizeof(t_philo) * (main->input.num_philo + 1));
 	if (main->philo == NULL)
 		return (FALSE);
-	main->forks = malloc(sizeof(pthread_mutex_t) * main->input.num_philo + 1);
-	if (main->forks == NULL)
-		return (FALSE);
 	i = 0;
 	j = 1;
-	while (i < main->input.num_philo - 1)
+	while (j < main->input.num_philo)
 	{
 		fill_philo_struct(main, i, j);
-		j++;
 		i++;
+		j++;
 	}
 	j = 0;
 	fill_philo_struct(main, i, j);
