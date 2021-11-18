@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_threads.c                                   :+:      :+:    :+:   */
+/*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 23:00:12 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/18 20:43:25 by anolivei         ###   ########.fr       */
+/*   Created: 2021/11/18 20:26:55 by anolivei          #+#    #+#             */
+/*   Updated: 2021/11/18 20:47:09 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	create_threads(t_main *main)
+void	*routine(void)
 {
-	int	i;
-
-	i = 0;
-	while (i < main->input.num_philo)
-	{
-		if (pthread_create(&main->philo[i].thread, NULL, &routine, NULL) != 0)
-			return (FALSE);
-		i++;
-	}
-	i = 0;
-	while (i < main->input.num_philo)
-	{
-		if (pthread_join(main->philo[i].thread, NULL) != 0)
-			return (FALSE);
-		i++;
-	}
-	return (TRUE);
+	printf("starting routine\n");
+	return (0);
 }

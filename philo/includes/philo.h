@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/17 23:02:40 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/18 20:47:24 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_philo
 	long long		time_to_eat;
 	long long		time_to_sleep;
 	t_fork			fork;
+	pthread_t		thread;
 }					t_philo;
 
 typedef struct s_main
@@ -114,6 +115,11 @@ long long	get_time(void);
 /*
 ** create_threads.c
 */
-void		create_threads(t_main *main);
+int			create_threads(t_main *main);
+
+/*
+** routine.c
+*/
+void		*routine(void);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/14 20:22:14 by anolivei          #+#    #+#              #
-#    Updated: 2021/11/17 23:03:43 by anolivei         ###   ########.fr        #
+#    Updated: 2021/11/18 20:36:20 by anolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/create_philos.c \
 		$(SRC_DIR)/create_forks.c \
 		$(SRC_DIR)/create_threads.c \
+		$(SRC_DIR)/routine.c \
 		$(SRC_DIR)/time_handling.c
 
 

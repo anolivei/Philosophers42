@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:12:20 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/17 22:22:55 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/18 20:46:01 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	create_forks(t_main *main)
 	{
 		if (pthread_mutex_init(&main->forks[i], NULL) != 0)
 			return (FALSE);
+		i++;
 	}
 	return (TRUE);
 }
