@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/18 20:47:24 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/18 22:02:44 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,13 @@
 /*
 ** Colors
 */
-# define RED "\e[0;31m"
 # define RESET "\e[0m"
+# define PINK "\e[0;38;5;199m"
+# define GREEN "\e[0;32m"
+# define BLUE "\e[0;34m"
+# define G_BLUE "\e[0;38;5;24m"
+# define B_BLUE "\e[1;34m"
+# define G_CYAN "\e[0;38;5;44m"
 
 /*
 ** Error messages
@@ -48,6 +53,16 @@
 # define ARG5 "ERROR: There is a mistake in number of times each \
 philosopher must eat"
 
+/*
+** Routines messages
+*/
+# define EAT "is eating"
+# define SLEEP "is sleeping"
+# define THINK "is thinking"
+# define L_FORK "has taken the left fork"
+# define R_FORK "has taken the right fork"
+# define DIED "died ☠️"
+# define OK "[OK] All the philos ate"
 /*
 ** Structures
 */
@@ -120,6 +135,6 @@ int			create_threads(t_main *main);
 /*
 ** routine.c
 */
-void		*routine(void);
+void		*routine(void *args);
 
 #endif
