@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/18 22:02:44 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/20 18:24:30 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@
 philosopher must eat"
 
 /*
+** Help message
+*/
+# define HELP "The number of argments must be 4 or 5:\n\
+arg1 number of philosophers\n\
+arg2 time to die\n\
+arg3 time to eat\n\
+arg4 time to sleep\n\
+arg5 number of times each philosopher must eat (optional)"
+
+/*
 ** Routines messages
 */
 # define EAT "is eating"
@@ -62,7 +72,8 @@ philosopher must eat"
 # define L_FORK "has taken the left fork"
 # define R_FORK "has taken the right fork"
 # define DIED "died ☠️"
-# define OK "[OK] All the philos ate"
+# define FULL "is full"
+
 /*
 ** Structures
 */
@@ -94,6 +105,7 @@ typedef struct s_philo
 
 typedef struct s_main
 {
+	int				i_philo;
 	t_input			input;
 	t_philo			*philo;
 	pthread_mutex_t	*forks;
@@ -104,11 +116,14 @@ typedef struct s_main
 */
 int			error_handling(int argc, char **argv, t_main *main);
 int			init_input_struct(int argc, char **argv, t_main *main);
+void		print_args_errors(t_main *main, int argc);
 
 /*
 ** philo_utils.c
 */
 int			philo_atoi(char *str);
+int			philo_strncmp(const char *s1, const char *s2, size_t n);
+int			philo_strlen(const char *str);
 void		philo_free(t_main *main);
 
 /*
@@ -126,6 +141,7 @@ int			create_forks(t_main *main);
 ** time_handling.c
 */
 long long	get_time(void);
+long long	delta_time(long long time2);
 
 /*
 ** create_threads.c
@@ -136,5 +152,6 @@ int			create_threads(t_main *main);
 ** routine.c
 */
 void		*routine(void *args);
+void		routine_print(t_main *main, char *color, char *status);
 
 #endif

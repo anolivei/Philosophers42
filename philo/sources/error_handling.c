@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:10:58 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/18 21:48:15 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/20 18:21:04 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 
 int	error_handling(int argc, char **argv, t_main *main)
 {
-	if (init_input_struct(argc, argv, main) == FALSE)
+	if (argc == 2 && !philo_strncmp(argv[1], "help", 4)
+		&& philo_strlen(argv[1]) == 4)
+	{
+		printf("%s%s%s\n", GREEN, HELP, RESET);
+		return (FALSE);
+	}
+	else if (init_input_struct(argc, argv, main) == FALSE)
 	{
 		printf("%s%s%s\n", PINK, NUM_ARGS, RESET);
 		return (FALSE);
 	}
 	else
 	{
-		if (!main->input.num_philo)
-			printf("%s%s%s\n", PINK, ARG1, RESET);
-		if (!main->input.time_to_die)
-			printf("%s%s%s\n", PINK, ARG2, RESET);
-		if (!main->input.time_to_eat)
-			printf("%s%s%s\n", PINK, ARG3, RESET);
-		if (!main->input.time_to_sleep)
-			printf("%s%s%s\n", PINK, ARG4, RESET);
-		if (argc == 6 && !main->input.num_of_times_each_philo_must_eat)
-			printf("%s%s%s\n", PINK, ARG5, RESET);
+		print_args_errors(main, argc);
 		if (!main->input.num_philo || !main->input.time_to_die
 			|| !main->input.time_to_eat || !main->input.time_to_sleep
 			|| (argc == 6 && !main->input.num_of_times_each_philo_must_eat))
@@ -52,4 +49,18 @@ int	init_input_struct(int argc, char **argv, t_main *main)
 		return (TRUE);
 	}
 	return (FALSE);
+}
+
+void	print_args_errors(t_main *main, int argc)
+{
+	if (!main->input.num_philo)
+		printf("%s%s%s\n", PINK, ARG1, RESET);
+	if (!main->input.time_to_die)
+		printf("%s%s%s\n", PINK, ARG2, RESET);
+	if (!main->input.time_to_eat)
+		printf("%s%s%s\n", PINK, ARG3, RESET);
+	if (!main->input.time_to_sleep)
+		printf("%s%s%s\n", PINK, ARG4, RESET);
+	if (argc == 6 && !main->input.num_of_times_each_philo_must_eat)
+		printf("%s%s%s\n", PINK, ARG5, RESET);
 }
