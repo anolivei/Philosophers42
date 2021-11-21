@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:35:22 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/18 20:18:08 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/21 15:27:29 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	main(int argc, char **argv)
 	if (create_forks(&main) == FALSE)
 		return (1);
 	if (create_threads(&main) == FALSE)
+		return (1);
+	if (destroy_threads(&main) == FALSE)
 		return (1);
 	philo_free(&main);
 	return (0);

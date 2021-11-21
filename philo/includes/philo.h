@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/20 18:24:30 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/21 14:53:55 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,9 @@ typedef struct s_philo
 
 typedef struct s_main
 {
-	int				i_philo;
+	int				n_thread;
+	int				num_of_times_ate;
+	int				philo_dead;
 	t_input			input;
 	t_philo			*philo;
 	pthread_mutex_t	*forks;
@@ -147,11 +149,13 @@ long long	delta_time(long long time2);
 ** create_threads.c
 */
 int			create_threads(t_main *main);
+int			destroy_threads(t_main *main);
 
 /*
 ** routine.c
 */
 void		*routine(void *args);
-void		routine_print(t_main *main, char *color, char *status);
+int			routine_execute(t_main *main);
+void		routine_print(t_main *main, int id, char *color, char *status);
 
 #endif

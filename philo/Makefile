@@ -6,7 +6,7 @@
 #    By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/14 20:22:14 by anolivei          #+#    #+#              #
-#    Updated: 2021/11/18 21:56:55 by anolivei         ###   ########.fr        #
+#    Updated: 2021/11/21 14:57:54 by anolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,14 @@ NAME = philo
 SRC_DIR = sources
 OBJ_DIR = .objs
 
-SRC =	$(SRC_DIR)/main.c \
-		$(SRC_DIR)/error_handling.c \
-		$(SRC_DIR)/philo_utils.c \
+SRC =	$(SRC_DIR)/create_forks.c \
 		$(SRC_DIR)/create_philos.c \
-		$(SRC_DIR)/create_forks.c \
-		$(SRC_DIR)/create_threads.c \
-		$(SRC_DIR)/routine.c \
-		$(SRC_DIR)/time_handling.c
-
+		$(SRC_DIR)/handling_error.c \
+		$(SRC_DIR)/handling_threads.c \
+		$(SRC_DIR)/handling_time.c \
+		$(SRC_DIR)/main.c \
+		$(SRC_DIR)/philo_utils.c \
+		$(SRC_DIR)/routine.c
 
 OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC))
 
