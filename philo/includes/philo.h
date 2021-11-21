@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/21 14:53:55 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/21 16:22:52 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ philosopher must eat"
 ** Help message
 */
 # define HELP "The number of argments must be 4 or 5:\n\
-arg1 number of philosophers\n\
-arg2 time to die\n\
-arg3 time to eat\n\
-arg4 time to sleep\n\
-arg5 number of times each philosopher must eat (optional)"
+- arg1 number of philosophers\n\
+- arg2 time to die\n\
+- arg3 time to eat\n\
+- arg4 time to sleep\n\
+- arg5 number of times each philosopher must eat (optional)"
 
 /*
 ** Routines messages
@@ -79,11 +79,11 @@ arg5 number of times each philosopher must eat (optional)"
 */
 typedef struct s_input
 {
-	int	num_philo;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	num_of_times_each_philo_must_eat;
+	int				num_philo;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				num_of_times_eat;
 }					t_input;
 
 typedef struct s_fork
@@ -114,11 +114,35 @@ typedef struct s_main
 }					t_main;
 
 /*
-** error_handling.c
+** handling_errors.c
 */
 int			error_handling(int argc, char **argv, t_main *main);
 int			init_input_struct(int argc, char **argv, t_main *main);
 void		print_args_errors(t_main *main, int argc);
+
+/*
+** handling_forks.c
+*/
+int			create_forks(t_main *main);
+void		unlock_forks(t_main *main);
+
+/*
+** handling_philos.c
+*/
+int			create_philos(t_main *main);
+void		fill_philo_struct(t_main *main, int i, int j);
+
+/*
+** handling_threads.c
+*/
+int			create_threads(t_main *main);
+int			destroy_threads(t_main *main);
+
+/*
+** handling_time.c
+*/
+long long	get_time(void);
+long long	delta_time(long long time2);
 
 /*
 ** philo_utils.c
@@ -127,29 +151,6 @@ int			philo_atoi(char *str);
 int			philo_strncmp(const char *s1, const char *s2, size_t n);
 int			philo_strlen(const char *str);
 void		philo_free(t_main *main);
-
-/*
-** create_philos.c
-*/
-int			create_philos(t_main *main);
-void		fill_philo_struct(t_main *main, int i, int j);
-
-/*
-** create_forks.c
-*/
-int			create_forks(t_main *main);
-
-/*
-** time_handling.c
-*/
-long long	get_time(void);
-long long	delta_time(long long time2);
-
-/*
-** create_threads.c
-*/
-int			create_threads(t_main *main);
-int			destroy_threads(t_main *main);
 
 /*
 ** routine.c

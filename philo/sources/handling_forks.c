@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_forks.c                                     :+:      :+:    :+:   */
+/*   handling_forks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:12:20 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/18 20:46:01 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/21 16:13:40 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,16 @@ int	create_forks(t_main *main)
 		i++;
 	}
 	return (TRUE);
+}
+
+void	unlock_forks(t_main *main)
+{
+	int	i;
+
+	i = 0;
+	while (i < main->input.num_philo)
+	{
+		pthread_mutex_unlock(&main->forks[i]);
+		i++;
+	}
 }
