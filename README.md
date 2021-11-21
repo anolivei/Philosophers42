@@ -70,7 +70,7 @@ Only the following functions are allowed to be used in this project on mandatory
 | free | free dynamic memory | pthread_mutex_init | initialise the mutex |
 | write | write to a file descriptor | pthread_mutex_destroy | destroy the mutex object |
 | usleep | suspend execution for microsecond intervals | pthread_mutex_lock | lock the mutex object |
-| gettimeofday |  get the time as well as a timezone | pthread_mutex_unlock | releases the mutex object |
+| gettimeofday |  get the time and gives the number of seconds and microseconds since the Epoch | pthread_mutex_unlock | releases the mutex object |
 
 ## Starting ##
 
