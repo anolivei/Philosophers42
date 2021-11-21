@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/21 16:22:52 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/21 20:29:34 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ typedef struct s_philo
 {
 	int				id;
 	int				status;
+	int				num_of_times_ate;
 	long long		time_to_die;
 	long long		time_to_eat;
 	long long		time_to_sleep;
@@ -106,7 +107,6 @@ typedef struct s_philo
 typedef struct s_main
 {
 	int				n_thread;
-	int				num_of_times_ate;
 	int				philo_dead;
 	t_input			input;
 	t_philo			*philo;
@@ -156,7 +156,7 @@ void		philo_free(t_main *main);
 ** routine.c
 */
 void		*routine(void *args);
-int			routine_execute(t_main *main);
+int			routine_execute(t_main *main, int i);
 void		routine_print(t_main *main, int id, char *color, char *status);
 
 #endif

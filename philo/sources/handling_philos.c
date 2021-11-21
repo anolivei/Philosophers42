@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_philos.c                                    :+:      :+:    :+:   */
+/*   handling_philos.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 20:01:05 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/17 22:16:49 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/21 20:31:44 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	create_philos(t_main *main)
 void	fill_philo_struct(t_main *main, int i, int j)
 {
 	main->philo[i].id = i + 1;
+	main->philo[i].num_of_times_ate = 0;
 	main->philo[i].time_to_die = get_time();
 	main->philo[i].time_to_eat = get_time();
 	main->philo[i].time_to_sleep = get_time();

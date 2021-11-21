@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 23:00:12 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/21 16:33:42 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/21 20:31:21 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	create_threads(t_main *main)
 	int	i;
 
 	i = 0;
-	main->num_of_times_ate = 0;
 	main->philo_dead = FALSE;
 	while (i < main->input.num_philo)
 	{
@@ -26,7 +25,7 @@ int	create_threads(t_main *main)
 				NULL, &routine, (void *) main) != 0)
 			return (FALSE);
 		i++;
-		usleep(10);
+		usleep(50);
 	}
 	i = 0;
 	while (i < main->input.num_philo)
