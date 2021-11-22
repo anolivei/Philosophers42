@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 20:26:55 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/21 20:32:33 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/21 23:25:06 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ void	*routine(void *args)
 	if (main->input.num_of_times_eat > 0)
 	{
 		while (main->input.num_of_times_eat > main->philo[i].num_of_times_ate)
-		{
-			usleep(10);
 			routine_execute(main, i);
-		}
 	}
 	else
 	{
@@ -59,6 +56,21 @@ void	routine_print(t_main *main, int id, char *color, char *status)
 {
 	long long	now;
 
-	now = main->philo[main->n_thread].time_to_die;
+	now = get_time();
+	(void)main;
 	printf("%s%-10lld %-3d %-30s%s\n", color, now, id, status, RESET);
+}
+
+int	routine_usleep(t_main *main, long long time1)
+{
+	long long time2;
+
+	time2 = get_time();
+	while (main->philo_dead == FALSE)
+	{
+		if (delta_time(time2) >= time1)
+			return (FALSE);
+		usleep(1000);
+	}
+	return (TRUE);
 }

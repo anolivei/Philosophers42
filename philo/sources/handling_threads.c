@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 23:00:12 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/21 20:31:21 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/21 23:25:01 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	create_threads(t_main *main)
 				NULL, &routine, (void *) main) != 0)
 			return (FALSE);
 		i++;
-		usleep(50);
+		usleep(1000);
 	}
 	i = 0;
 	while (i < main->input.num_philo)
