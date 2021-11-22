@@ -63,7 +63,7 @@ void	routine_print(t_main *main, int id, char *color, char *status)
 
 int	routine_usleep(t_main *main, long long time1)
 {
-	long long time2;
+	long long	time2;
 
 	time2 = get_time();
 	while (main->philo_dead == FALSE)
