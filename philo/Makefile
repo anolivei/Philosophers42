@@ -6,7 +6,7 @@
 #    By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/14 20:22:14 by anolivei          #+#    #+#              #
-#    Updated: 2021/11/21 16:04:39 by anolivei         ###   ########.fr        #
+#    Updated: 2021/11/24 23:28:38 by anolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = philo
 SRC_DIR = sources
 OBJ_DIR = .objs
 
-SRC =	$(SRC_DIR)/handling_errors.c \
+SRC =	$(SRC_DIR)/actions.c \
+		$(SRC_DIR)/handling_errors.c \
 		$(SRC_DIR)/handling_forks.c \
 		$(SRC_DIR)/handling_philos.c \
 		$(SRC_DIR)/handling_threads.c \

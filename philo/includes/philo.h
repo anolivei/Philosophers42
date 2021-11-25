@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/21 20:29:34 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/24 23:57:41 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ philosopher must eat"
 # define EAT "is eating"
 # define SLEEP "is sleeping"
 # define THINK "is thinking"
-# define L_FORK "has taken the left fork"
-# define R_FORK "has taken the right fork"
+# define FORK "has taken a fork"
 # define DIED "died ☠️"
 # define FULL "is full"
 
@@ -111,7 +110,16 @@ typedef struct s_main
 	t_input			input;
 	t_philo			*philo;
 	pthread_mutex_t	*forks;
+	pthread_mutex_t	write;
 }					t_main;
+
+/*
+** actions.c
+*/
+int			philo_eat(t_main *main, int i);
+int			philo_think(t_main *main, int i);
+int			philo_sleep(t_main *main, int i);
+void		exec_action(long long time);
 
 /*
 ** handling_errors.c
@@ -157,6 +165,6 @@ void		philo_free(t_main *main);
 */
 void		*routine(void *args);
 int			routine_execute(t_main *main, int i);
-void		routine_print(t_main *main, int id, char *color, char *status);
+int			routine_print(t_main *main, int id, char *color, char *status);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 20:26:55 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/21 23:25:06 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/25 00:00:51 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,43 +22,44 @@ void	*routine(void *args)
 	if (main->input.num_of_times_eat > 0)
 	{
 		while (main->input.num_of_times_eat > main->philo[i].num_of_times_ate)
-			routine_execute(main, i);
+		{
+			if (routine_execute(main, i) == FALSE)
+				return (0);
+		}
 	}
 	else
 	{
 		while (main->philo_dead == FALSE)
-			routine_execute(main, i);
+		{
+			if (routine_execute(main, i) == FALSE)
+				return (0);
+		}
 	}
 	return (0);
 }
 
 int	routine_execute(t_main *main, int i)
 {
-	if (pthread_mutex_lock(&main->forks[main->philo->fork.left]))
+	if (philo_sleep(main, i) == FALSE)
 		return (FALSE);
-	if (pthread_mutex_unlock(&main->forks[main->philo->fork.left]))
+	if (philo_think(main, i) == FALSE)
 		return (FALSE);
-	routine_print(main, main->philo[i].id, B_BLUE, L_FORK);
-	if (pthread_mutex_lock(&main->forks[main->philo->fork.right]))
+	if (philo_eat(main, i) == FALSE)
 		return (FALSE);
-	if (pthread_mutex_unlock(&main->forks[main->philo->fork.right]))
-		return (FALSE);
-	routine_print(main, main->philo[i].id, B_BLUE, R_FORK);
-	routine_print(main, main->philo[i].id, G_CYAN, EAT);
-	main->philo->time_to_die = get_time();
-	main->philo[i].num_of_times_ate++;
-	routine_print(main, main->philo[i].id, BLUE, SLEEP);
-	routine_print(main, main->philo[i].id, G_BLUE, THINK);
 	return (TRUE);
 }
 
-void	routine_print(t_main *main, int id, char *color, char *status)
+int	routine_print(t_main *main, int id, char *color, char *status)
 {
 	long long	now;
 
 	now = get_time();
-	(void)main;
+	if (main->philo_dead == TRUE)
+		return (FALSE);
+	pthread_mutex_lock(&main->write);
 	printf("%s%-10lld %-3d %-30s%s\n", color, now, id, status, RESET);
+	pthread_mutex_unlock(&main->write);
+	return (TRUE);
 }
 
 int	routine_usleep(t_main *main, long long time1)
