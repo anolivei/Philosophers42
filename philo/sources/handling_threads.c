@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 23:00:12 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/21 23:25:01 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/27 00:00:07 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ int	create_threads(t_main *main)
 
 	i = 0;
 	main->philo_dead = FALSE;
+	main->t0 = get_time();
+	if (pthread_mutex_init(&main->write, NULL) != 0)
+		return (FALSE);
 	while (i < main->input.num_philo)
 	{
 		main->n_thread = i;

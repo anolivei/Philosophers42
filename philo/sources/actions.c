@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:13:35 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/25 00:01:11 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/26 23:58:01 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	philo_eat(t_main *main, int i)
 {
-	if (pthread_mutex_lock(&main->forks[main->philo->fork.left]))
+	if (pthread_mutex_lock(&main->forks[main->philo[i].fork.left]))
 		return (FALSE);
 	if (routine_print(main, main->philo[i].id, B_BLUE, FORK) == FALSE)
 		return (FALSE);
-	if (pthread_mutex_lock(&main->forks[main->philo->fork.right]))
+	if (pthread_mutex_lock(&main->forks[main->philo[i].fork.right]))
 		return (FALSE);
 	if (routine_print(main, main->philo[i].id, B_BLUE, FORK) == FALSE)
 		return (FALSE);
@@ -26,9 +26,9 @@ int	philo_eat(t_main *main, int i)
 		return (FALSE);
 	main->philo->time_to_die = get_time();
 	exec_action(main->input.time_to_eat);
-	if (pthread_mutex_unlock(&main->forks[main->philo->fork.left]))
+	if (pthread_mutex_unlock(&main->forks[main->philo[i].fork.left]))
 		return (FALSE);
-	if (pthread_mutex_unlock(&main->forks[main->philo->fork.right]))
+	if (pthread_mutex_unlock(&main->forks[main->philo[i].fork.right]))
 		return (FALSE);
 	main->philo[i].num_of_times_ate++;
 	return (TRUE);

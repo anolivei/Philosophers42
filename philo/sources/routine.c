@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 20:26:55 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/25 00:00:51 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/26 23:46:47 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void	*routine(void *args)
 
 int	routine_execute(t_main *main, int i)
 {
+	if (philo_eat(main, i) == FALSE)
+		return (FALSE);
 	if (philo_sleep(main, i) == FALSE)
 		return (FALSE);
 	if (philo_think(main, i) == FALSE)
-		return (FALSE);
-	if (philo_eat(main, i) == FALSE)
 		return (FALSE);
 	return (TRUE);
 }
@@ -53,7 +53,7 @@ int	routine_print(t_main *main, int id, char *color, char *status)
 {
 	long long	now;
 
-	now = get_time();
+	now = delta_time(main->t0);
 	if (main->philo_dead == TRUE)
 		return (FALSE);
 	pthread_mutex_lock(&main->write);

@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/24 23:57:41 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/26 23:41:37 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct s_main
 {
 	int				n_thread;
 	int				philo_dead;
+	long long		t0;
 	t_input			input;
 	t_philo			*philo;
 	pthread_mutex_t	*forks;

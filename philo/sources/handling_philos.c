@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 20:01:05 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/21 20:31:44 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/26 23:53:16 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ void	fill_philo_struct(t_main *main, int i, int j)
 	main->philo[i].time_to_sleep = get_time();
 	main->philo[i].fork.left = i;
 	main->philo[i].fork.right = j;
+	printf("id %d left %d right %d\n", main->philo[i].id, main->philo[i].fork.left, main->philo[i].fork.right);
 }
