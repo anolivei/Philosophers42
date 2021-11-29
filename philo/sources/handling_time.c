@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 22:11:32 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/21 23:04:35 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/28 21:59:47 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ long long	delta_time(long long time)
 	if (time > 0)
 		return (get_time() - time);
 	return (0);
+}
+
+void	exec_action(long long time)
+{
+	usleep(time * 1000);
 }

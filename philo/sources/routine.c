@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 20:26:55 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/26 23:46:47 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/28 22:00:10 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,35 @@ void	*routine(void *args)
 	i = main->n_thread;
 	if (main->input.num_of_times_eat > 0)
 	{
-		while (main->input.num_of_times_eat > main->philo[i].num_of_times_ate)
-		{
-			if (routine_execute(main, i) == FALSE)
-				return (0);
-		}
+		while (main->input.num_of_times_eat > main->philo[i].num_of_times_ate
+			&& main->philo_dead == FALSE)
+			routine_execute(main, i);
 	}
 	else
 	{
 		while (main->philo_dead == FALSE)
-		{
-			if (routine_execute(main, i) == FALSE)
-				return (0);
-		}
+			routine_execute(main, i);
 	}
-	return (0);
+	return (NULL);
+}
+
+void	routine_check_deaths(t_main *main, int i)
+{
+	main->philo[i].time_to_die = delta_time(main->t0);
+	if (main->philo[i].time_to_die > main->input.time_to_die)
+		main->philo_dead = TRUE;
 }
 
 int	routine_execute(t_main *main, int i)
 {
+	routine_check_deaths(main, i);
 	if (philo_eat(main, i) == FALSE)
 		return (FALSE);
 	if (philo_sleep(main, i) == FALSE)
 		return (FALSE);
 	if (philo_think(main, i) == FALSE)
+		return (FALSE);
+	if (philo_die(main, i) == FALSE)
 		return (FALSE);
 	return (TRUE);
 }

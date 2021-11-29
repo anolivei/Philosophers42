@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/26 23:41:37 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/28 21:53:36 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,6 @@ typedef struct s_philo
 	int				status;
 	int				num_of_times_ate;
 	long long		time_to_die;
-	long long		time_to_eat;
-	long long		time_to_sleep;
 	t_fork			fork;
 	pthread_t		thread;
 }					t_philo;
@@ -120,7 +118,8 @@ typedef struct s_main
 int			philo_eat(t_main *main, int i);
 int			philo_think(t_main *main, int i);
 int			philo_sleep(t_main *main, int i);
-void		exec_action(long long time);
+int			philo_die(t_main *main, int i);
+int			drop_forks(t_main *main, int i);
 
 /*
 ** handling_errors.c
@@ -152,6 +151,7 @@ int			destroy_threads(t_main *main);
 */
 long long	get_time(void);
 long long	delta_time(long long time2);
+void		exec_action(long long time);
 
 /*
 ** philo_utils.c
@@ -165,6 +165,7 @@ void		philo_free(t_main *main);
 ** routine.c
 */
 void		*routine(void *args);
+void		routine_check_deaths(t_main *main, int i);
 int			routine_execute(t_main *main, int i);
 int			routine_print(t_main *main, int id, char *color, char *status);
 

@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 23:00:12 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/27 00:00:07 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/28 21:58:27 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ int	destroy_threads(t_main *main)
 	i = 0;
 	while (i < main->input.num_philo)
 	{
-		if (pthread_mutex_destroy(&main->forks[i]) != 0)
-			return (FALSE);
+		pthread_mutex_destroy(&main->forks[i]);
 		i++;
 	}
 	return (TRUE);
