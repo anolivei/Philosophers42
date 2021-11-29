@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 20:26:55 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/28 22:02:57 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/29 19:46:09 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,27 @@ void	*routine(void *args)
 	return (NULL);
 }
 
-void	routine_check_deaths(t_main *main, int i)
+int	routine_check_deaths(t_main *main, int i)
 {
 	main->philo[i].time_to_die = delta_time(main->t0);
 	if (main->philo[i].time_to_die > main->input.time_to_die)
+	{
+		philo_die(main, i);
 		main->philo_dead = TRUE;
+		return (TRUE);
+	}
+	return (FALSE);
 }
 
 int	routine_execute(t_main *main, int i)
 {
-	routine_check_deaths(main, i);
+	if (routine_check_deaths(main, i) == TRUE)
+		return (FALSE);
 	if (philo_eat(main, i) == FALSE)
 		return (FALSE);
 	if (philo_sleep(main, i) == FALSE)
 		return (FALSE);
 	if (philo_think(main, i) == FALSE)
-		return (FALSE);
-	if (philo_die(main, i) == FALSE)
 		return (FALSE);
 	return (TRUE);
 }
