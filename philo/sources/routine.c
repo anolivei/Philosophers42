@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 20:26:55 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/30 00:53:57 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/30 19:11:07 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,13 @@ int	routine_execute(t_main *main, int i)
 {
 	if (philo_eat(main, i) == FALSE)
 		return (FALSE);
-	if (philo_sleep(main, i) == FALSE)
-		return (FALSE);
-	if (philo_think(main, i) == FALSE)
-		return (FALSE);
+	if (main->input.num_of_times_eat != main->philo[i].num_of_times_ate)
+	{
+		if (philo_sleep(main, i) == FALSE)
+			return (FALSE);
+		if (philo_think(main, i) == FALSE)
+			return (FALSE);
+	}
 	return (TRUE);
 }
 
@@ -60,7 +63,7 @@ void	*checker(void *args)
 			&& main->philo_dead == FALSE)
 		{
 			if (philo_is_dead(main, &i) == TRUE)
-				return (NULL);
+				break ;
 		}
 	}
 	else
