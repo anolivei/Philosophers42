@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/29 20:51:00 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:54:27 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ typedef struct s_main
 	long long		t0;
 	t_input			input;
 	t_philo			*philo;
+	pthread_t		orchestrator;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	write;
 }					t_main;
@@ -144,6 +145,7 @@ void		fill_philo_struct(t_main *main, int i, int j);
 ** handling_threads.c
 */
 int			create_threads(t_main *main);
+int			join_threads(t_main *main);
 int			destroy_threads(t_main *main);
 
 /*
@@ -171,7 +173,7 @@ void		philo_free(t_main *main);
 ** routine.c
 */
 void		*routine(void *args);
-int			routine_check_deaths(t_main *main, int i);
+void		*checker(void *args);
 int			routine_execute(t_main *main, int i);
 int			routine_print(t_main *main, int id, char *color, char *status);
 

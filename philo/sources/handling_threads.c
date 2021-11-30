@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 23:00:12 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/28 21:58:27 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:57:19 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@ int	create_threads(t_main *main)
 		i++;
 		usleep(1000);
 	}
+	if (pthread_create(&main->orchestrator, NULL, &checker, (void *) main) != 0)
+		return (FALSE);
+	usleep(1000);
+	if (join_threads(main) == FALSE)
+		return (FALSE);
+	return (TRUE);
+}
+
+int	join_threads(t_main *main)
+{
+	int	i;
+
 	i = 0;
 	while (i < main->input.num_philo)
 	{
@@ -37,6 +49,8 @@ int	create_threads(t_main *main)
 			return (FALSE);
 		i++;
 	}
+	if (pthread_join(main->orchestrator, NULL) != 0)
+		return (FALSE);
 	return (TRUE);
 }
 
@@ -50,5 +64,6 @@ int	destroy_threads(t_main *main)
 		pthread_mutex_destroy(&main->forks[i]);
 		i++;
 	}
+	pthread_mutex_destroy(&main->write);
 	return (TRUE);
 }

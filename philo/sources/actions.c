@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:13:35 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/29 21:09:23 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:33:14 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,6 @@ int	philo_sleep(t_main *main, int i)
 int	philo_think(t_main *main, int i)
 {
 	if (routine_print(main, main->philo[i].id, G_BLUE, THINK) == FALSE)
-		return (FALSE);
-	return (TRUE);
-}
-
-int	philo_die(t_main *main, int i)
-{
-	if (routine_print(main, main->philo[i].id, PINK, DIED) == FALSE)
 		return (FALSE);
 	return (TRUE);
 }
