@@ -98,5 +98,3 @@ make fclean
 <div align="center" id="top"> 
   <img src="./.github/app.gif" alt="Gh_philosophers" />
 </div>
-
-<a href="#top">Back to top</a><br>
