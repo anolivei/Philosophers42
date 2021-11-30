@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/29 21:54:27 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/29 23:41:24 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,7 @@ void		philo_free(t_main *main);
 */
 void		*routine(void *args);
 void		*checker(void *args);
+int			is_dead(t_main *main, int i);
 int			routine_execute(t_main *main, int i);
 int			routine_print(t_main *main, int id, char *color, char *status);
 
