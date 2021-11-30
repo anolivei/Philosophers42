@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 20:26:55 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/30 00:14:58 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/30 00:53:57 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,15 @@ void	*routine(void *args)
 	return (NULL);
 }
 
-static int	checker_aux(t_main *main, int *i)
+int	routine_execute(t_main *main, int i)
 {
-	int	time;
-
-	if (*i == main->input.num_philo)
-		*i = 0;
-	time = delta_time(main->philo[*i].time_to_die);
-	if (time > main->input.time_to_die)
-	{
-		routine_print(main, main->philo[*i].id, PINK, DIED);
-		main->philo_dead = TRUE;
-		return (TRUE);
-	}
-	i++;
-	return (FALSE);
+	if (philo_eat(main, i) == FALSE)
+		return (FALSE);
+	if (philo_sleep(main, i) == FALSE)
+		return (FALSE);
+	if (philo_think(main, i) == FALSE)
+		return (FALSE);
+	return (TRUE);
 }
 
 void	*checker(void *args)
@@ -65,7 +59,7 @@ void	*checker(void *args)
 		while (main->input.num_of_times_eat > main->philo[i].num_of_times_ate
 			&& main->philo_dead == FALSE)
 		{
-			if (checker_aux(main, &i) == TRUE)
+			if (philo_is_dead(main, &i) == TRUE)
 				return (NULL);
 		}
 	}
@@ -73,25 +67,14 @@ void	*checker(void *args)
 	{
 		while (main->philo_dead == FALSE)
 		{
-			if (checker_aux(main, &i) == TRUE)
-				return (NULL);
+			if (philo_is_dead(main, &i) == TRUE)
+				break ;
 		}
 	}
 	return (NULL);
 }
 
-int	routine_execute(t_main *main, int i)
-{
-	if (philo_eat(main, i) == FALSE)
-		return (FALSE);
-	if (philo_sleep(main, i) == FALSE)
-		return (FALSE);
-	if (philo_think(main, i) == FALSE)
-		return (FALSE);
-	return (TRUE);
-}
-
-int	routine_print(t_main *main, int id, char *color, char *status)
+int	philo_print(t_main *main, int id, char *color, char *status)
 {
 	long long	now;
 

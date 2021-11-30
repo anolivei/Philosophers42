@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/29 23:41:24 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/30 00:54:05 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ typedef struct s_fork
 typedef struct s_philo
 {
 	int				id;
-	int				status;
 	int				num_of_times_ate;
 	long long		time_to_die;
 	t_fork			fork;
@@ -119,7 +118,7 @@ typedef struct s_main
 int			philo_eat(t_main *main, int i);
 int			philo_think(t_main *main, int i);
 int			philo_sleep(t_main *main, int i);
-int			philo_die(t_main *main, int i);
+int			philo_is_dead(t_main *main, int *i);
 int			drop_forks(t_main *main, int i);
 
 /*
@@ -173,9 +172,8 @@ void		philo_free(t_main *main);
 ** routine.c
 */
 void		*routine(void *args);
-void		*checker(void *args);
-int			is_dead(t_main *main, int i);
 int			routine_execute(t_main *main, int i);
-int			routine_print(t_main *main, int id, char *color, char *status);
+void		*checker(void *args);
+int			philo_print(t_main *main, int id, char *color, char *status);
 
 #endif

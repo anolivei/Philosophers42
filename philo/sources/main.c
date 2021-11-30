@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:35:22 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/29 23:35:41 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/30 00:24:54 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	just_one_philo(t_main *main)
 	if (pthread_mutex_init(&main->write, NULL) != 0)
 		return (FALSE);
 	main->t0 = get_time();
-	routine_print(main, 1, B_BLUE, FORK);
+	philo_print(main, 1, B_BLUE, FORK);
 	exec_action(main->input.time_to_die);
-	routine_print(main, 1, PINK, DIED);
+	philo_print(main, 1, PINK, DIED);
 	philo_free(main);
 	return (TRUE);
 }
