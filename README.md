@@ -77,16 +77,25 @@ Only the following functions are allowed to be used in this project on mandatory
 
 ```bash
 # Clone this project
-$ git clone https://github.com/anolivei/Philosophers42
+git clone https://github.com/anolivei/Philosophers42
 
 # Access
-$ cd Philosophers42
+cd Philosophers42/philo/
 
 # Compile the program
-$ make
+make
 
-# Run the project
-$ ./philosophers
+# To understand args
+./philo help
+
+# To run (example)
+./philo 10 80 80 80 2
+
+# To remove objects
+make clean
+
+# To remove objects and executable
+make fclean
 
 ```
 
