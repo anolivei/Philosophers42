@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/30 00:54:05 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/30 00:58:39 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 ** limits
 */
 # define INT_MAX 2147483647
-# define INT_MIN -2147483648
 
 /*
 ** bool
@@ -71,7 +70,6 @@ philosopher must eat"
 # define THINK "is thinking"
 # define FORK "has taken a fork"
 # define DIED "died ☠️"
-# define FULL "is full"
 
 /*
 ** Structures
@@ -116,8 +114,8 @@ typedef struct s_main
 ** actions.c
 */
 int			philo_eat(t_main *main, int i);
-int			philo_think(t_main *main, int i);
 int			philo_sleep(t_main *main, int i);
+int			philo_think(t_main *main, int i);
 int			philo_is_dead(t_main *main, int *i);
 int			drop_forks(t_main *main, int i);
 

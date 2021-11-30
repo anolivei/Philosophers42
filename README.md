@@ -16,12 +16,6 @@
 
 </p>
 
-<h4 align="center">
-
-	  🚧  Philosophers 🍝 Under construction...  🚧
-
-</h4> 
-
 <hr>
 
 <p align="center">
