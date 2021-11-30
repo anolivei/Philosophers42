@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:13:35 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/29 19:49:00 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:09:23 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int	philo_eat(t_main *main, int i)
 {
-	if (pthread_mutex_lock(&main->forks[main->philo[i].fork.left]))
+	if (pthread_mutex_lock(&main->forks[main->philo[i].fork.left]) != 0)
 		return (FALSE);
 	if (routine_print(main, main->philo[i].id, B_BLUE, FORK) == FALSE)
 		return (FALSE);
-	if (pthread_mutex_lock(&main->forks[main->philo[i].fork.right]))
+	if (pthread_mutex_lock(&main->forks[main->philo[i].fork.right]) != 0)
 		return (FALSE);
 	if (routine_print(main, main->philo[i].id, B_BLUE, FORK) == FALSE)
 		return (FALSE);
 	if (routine_print(main, main->philo[i].id, G_CYAN, EAT) == FALSE)
 		return (FALSE);
-	main->philo->time_to_die = get_time();
+	main->philo[i].time_to_die = get_time();
 	exec_action(main->input.time_to_eat);
 	drop_forks(main, i);
 	return (TRUE);

@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 20:26:55 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/29 19:46:09 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:10:00 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ void	*routine(void *args)
 
 int	routine_check_deaths(t_main *main, int i)
 {
-	main->philo[i].time_to_die = delta_time(main->t0);
-	if (main->philo[i].time_to_die > main->input.time_to_die)
+	int	time;
+
+	time = delta_time(main->philo[i].time_to_die);
+	if (time > main->input.time_to_die)
 	{
 		philo_die(main, i);
 		main->philo_dead = TRUE;
@@ -68,19 +70,5 @@ int	routine_print(t_main *main, int id, char *color, char *status)
 	pthread_mutex_lock(&main->write);
 	printf("%s%-10lld %-3d %-30s%s\n", color, now, id, status, RESET);
 	pthread_mutex_unlock(&main->write);
-	return (TRUE);
-}
-
-int	routine_usleep(t_main *main, long long time1)
-{
-	long long	time2;
-
-	time2 = get_time();
-	while (main->philo_dead == FALSE)
-	{
-		if (delta_time(time2) >= time1)
-			return (FALSE);
-		usleep(1000);
-	}
 	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:35:22 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/28 21:38:48 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/29 20:49:56 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,28 @@ int	main(int argc, char **argv)
 		return (1);
 	if (create_forks(&main) == FALSE)
 		return (1);
+	if (main.input.num_philo == 1)
+	{
+		if (just_one_philo(&main) == FALSE)
+			return (1);
+		return (0);
+	}
 	if (create_threads(&main) == FALSE)
 		return (1);
 	if (destroy_threads(&main) == FALSE)
 		return (1);
 	philo_free(&main);
 	return (0);
+}
+
+int	just_one_philo(t_main *main)
+{
+	if (pthread_mutex_init(&main->write, NULL) != 0)
+		return (FALSE);
+	main->t0 = get_time();
+	routine_print(main, 1, B_BLUE, FORK);
+	exec_action(main->input.time_to_die);
+	routine_print(main, 1, PINK, DIED);
+	philo_free(main);
+	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:29:31 by anolivei          #+#    #+#             */
-/*   Updated: 2021/11/29 19:42:34 by anolivei         ###   ########.fr       */
+/*   Updated: 2021/11/29 20:51:00 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,12 @@ int			destroy_threads(t_main *main);
 long long	get_time(void);
 long long	delta_time(long long time2);
 void		exec_action(long long time);
+
+/**
+**
+*/
+int			main(int argc, char **argv);
+int			just_one_philo(t_main *main);
 
 /*
 ** philo_utils.c
