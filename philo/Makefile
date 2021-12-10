@@ -42,9 +42,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 		@$(CC) $(CFLAGS) $(HEAD) -c $< -o $@
 		@echo "\033[0;32m[OK]\033[0m    \033[0;38;5;199mCompiling\033[0m $(<F)"
 
-$(LIBFT):
-		@make -C $(LIBFT_DIR)
-
 clean:
 		@$(RM) $(OBJ_DIR)
 		@echo "\033[0;32m[OK]\033[0m    \033[0;38;5;44mRemoving objects\033[0m"
