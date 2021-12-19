@@ -30,7 +30,7 @@
 
 ## About ##
 
--  Philosophers is a project at school 42 and the instructions were given in the [subject](https://github.com/anolivei/Philosophers42/blob/main/subject.pdf).
+-  Philosophers is a project at school 42 and the instructions were given in the [subject](https://github.com/anolivei/Philosophers42/blob/master/subject.pdf).
 
 
 ## Links ##
